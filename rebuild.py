@@ -3,9 +3,10 @@ import shutil
 import glob
 
 UE4_ENGINE_PATH = r'FILL THIS IN'
-PROJECT_NAME = r'FILL THIS IN'
 
 cwd = os.getcwd()
+PROJECT_NAME = cwd[cwd.rfind('\\')+1:]
+
 os.remove(os.path.join(cwd, f'{PROJECT_NAME}.sln'))
 try:
     shutil.rmtree(os.path.join(cwd, 'DerivedDataCache'))
