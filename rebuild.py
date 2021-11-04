@@ -1,6 +1,7 @@
 import os
 import shutil
 import glob
+import ctypes
 
 UE4_ENGINE_PATH = r'FILL THIS IN'
 
@@ -33,3 +34,4 @@ for fold in ('Intermediate', 'Saved'):
                 os.remove(file)
 
 os.system(rf'{UE4_ENGINE_PATH}\Engine\Binaries\DotNET\UnrealBuildTool.exe -projectfiles -project="{os.getcwd()}\{PROJECT_NAME}.uproject" -game -rocket -progress')
+ctypes.windll.user32.MessageBoxW(None, 'Project was succesfully rebuilt', 'REBUILD DONE', 1)
